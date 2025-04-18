@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="shopping-cart.ico">
+    <title>CompraLista.2024</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Icono para pantallas de inicio de dispositivos Android -->
+    <link rel="icon" href="/favicon.png" sizes="192x192" type="image/png">
+
+<!-- Icono para pantallas de inicio de dispositivos iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="/ruta/al/apple-icon-180x180.png">
+
+<!-- Icono genérico para navegadores -->
+<link rel="icon" type="image/png" sizes="32x32" href="/ruta/al/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/ruta/al/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/ruta/al/favicon-16x16.png">
+
+<!-- Manifiesto para aplicaciones web -->
+<link rel="manifest" href="/manifest.json">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="shopping-cart.png" alt="Shopping Cart" class="cart-icon">
+        <h1>CompraLista.2024</h1>
+        <img src="shopping-cart.png" alt="Shopping Cart" class="cart-icon">
+    </div>
+    <!-- Agregar después del título en el header -->
+    <div class="connection-status-container">
+      <span id="connection-status" class="status-online">En línea</span>
+    </div>
+        <div class="code-section">
+            <input type="text" id="share-code" placeholder="Código de lista..." maxlength="6">
+            <button onclick="connectList()" class="connect-btn">Conectar</button>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="item-input" placeholder="Añade un producto...">
+             <button onclick="startSpeechRecognition()">
+              <img src="microphone.png" alt="Micrófono" width="15" height="20">
+             </button>
+            <button onclick="addItem()">
+              <img src="add.png" alt="Micrófono" width="15" height="20">
+            </button>
+        </div>
+
+        <ul id="shopping-list"></ul>
+
+        <button onclick="clearAll()" class="clear-btn">Limpiar Lista</button>
+        <button onclick="shareList()" class="share-btn">Compartir Lista</button>
+        <button id="sync-button"onclick="showCodeInput()" class="sync-btn">Sincronizar con otro código</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registrado correctamente:', registration);
+            })
+            .catch(error => {
+              console.error('Error al registrar el Service Worker:', error);
+            });
+        });
+      }
+    </script>
+
+</body>
+</html>
+

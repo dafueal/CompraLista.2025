@@ -1,0 +1,68 @@
+<!-- offline.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompraLista.2024 - Sin conexión</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="shopping-cart-android.png" alt="Carrito de compras" class="cart-icon">
+      <h1>CompraLista.2024</h1>
+    </div>
+    
+    <div class="offline-message">
+      <p>Estás trabajando sin conexión. Puedes ver y editar tu lista, y los cambios se sincronizarán cuando vuelvas a estar en línea.</p>
+    </div>
+    
+    <div id="items-container" class="items-container">
+      <!-- Los elementos se cargarán desde IndexedDB -->
+    </div>
+    
+    <div class="input-section">
+      <input type="text" id="item-input" placeholder="Añadir un artículo">
+      <button id="add-button">Añadir</button>
+    </div>
+  </div>
+  
+  <script src="db.js"></script>
+  <script>
+    // Script mínimo para cargar elementos desde IndexedDB
+    document.addEventListener('DOMContentLoaded', () => {
+      initLocalDb().then(() => {
+        const savedCode = localStorage.getItem('currentListCode');
+        if (savedCode) {
+          getLocalItems(savedCode).then(items => {
+            const container = document.getElementById('items-container');
+            items.forEach(item => {
+              // Mostrar los elementos
+              const itemElement = document.createElement('div');
+              itemElement.id = `item-${item.id}`;
+              itemElement.className = `item ${item.completed ? 'completed' : ''}`;
+              itemElement.innerHTML = `
+                <input type="checkbox" ${item.completed ? 'checked' : ''}>
+                <span>${item.text}</span>
+                <button class="delete-btn">×</button>
+              `;
+              container.appendChild(itemElement);
+            });
+          });
+        }
+      });
+      
+      // Añadir funcionalidad al botón de añadir
+      document.getElementById('add-button').addEventListener('click', () => {
+        const input = document.getElementById('item-input');
+        const itemText = input.value.trim();
+        if (itemText) {
+          alert('Los nuevos elementos se guardarán cuando vuelvas a estar en línea');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+

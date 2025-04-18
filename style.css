@@ -1,0 +1,185 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+    color: #333;
+    vertical-align: middle;
+    line-height: 32px;
+}
+
+.cart-icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.cart-icon-right {
+    position: absolute;
+    right: 0;
+}
+
+/* Input and buttons */
+.input-section, 
+.code-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2962ff; /* Bright blue that stands out better */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* List items */
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Button variants */
+.delete-btn {
+    background-color: #ff4444;
+    padding: 5px 10px;
+}
+
+.share-btn {
+    background-color: #2196F3;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.check-btn {
+    background-color: #ffd700;
+    padding: 5px 10px;
+}
+
+.clear-btn {
+    background-color: #ff6b6b;
+    margin: 20px 0 10px;
+    width: 100%;
+}
+
+.connect-btn {
+    background-color: #9c27b0;
+}
+
+.sync-btn {
+    background-color: #9c27b0;
+    margin: 32px 0;
+    width: 100%;
+}
+
+/* Action containers */
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+/* States */
+.completed {
+    background-color: #e8ffe8;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* Code display */
+#share-code {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.code-display {
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-family: monospace;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
+
+.input-section button:first-child { /* Style the first button */
+  padding: 10px; /* Adjust padding as needed */
+  background-color: #2962ff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-section button:first-child img { /* Style the icon */
+  vertical-align: middle; /* Center the icon vertically */
+}
+
+/* Añadir a style.css */
+.connection-status-container {
+  margin-left: 10px;
+}
+
+#connection-status {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.status-online {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.status-offline {
+  background-color: #F44336;
+  color: white;
+}
+
+
