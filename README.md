@@ -1,0 +1,1 @@
+# CompraLista.2025
